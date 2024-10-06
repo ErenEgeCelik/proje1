@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Explore the Solar System</h1>
+        </header>
+        <section class="info">
+            <p>Welcome to the Interactive Orrery! This application will help you explore celestial bodies in our solar system.Click on the planets to get more information about them.</p>
+        </section>
+        <div class="button-container">
+            <button id="start-btn">Start the Simulation</button>
+        </div>
+        <div class="button-container">
+            <button id="info-btn">About This Model & References</button>
+        </div>
+        <div id="info-section" style="display: none; margin-top: 20px;">
+            <h2>About This Model</h2>
+            <p>This solar system simulation was created using Three.js, a JavaScript 3D library, to help visualize the orbits and properties of celestial bodies in our solar system. The planetary data, including the size and distance from the Sun, was sourced from NASA's publicly available datasets.</p>
+            <h3>References</h3>
+            <ul>
+                <li><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank">NASA Planetary Fact Sheets</a></li>
+                <li><a href="https://threejs.org/docs/" target="_blank">Three.js Documentation</a></li>
+                <li><a href="https://solarsystem.nasa.gov/" target="_blank">NASA Solar System Exploration</a></li>
+            </ul>
+        </div>
+    </div>
+    <canvas id="solar-system-canvas" style="display: none;"></canvas> <!-- Simülasyon için canvas tanımlandı -->
+
+    <!-- Zaman kontrol inputu -->
+    <div id="time-control" style="display: none;">
+        <label for="time-input">Time Speed: </label>
+        <input type="number" id="time-input" min="0.01" max="10" step="0.01" value="0.05">
+    </div>
+
+    <!-- Gezegen bilgisi gösterimi -->
+    <div id="planet-info">
+        <h2>Planet Information</h2>
+        <ul id="planet-details"></ul>
+        <button id="close-info-btn">Close</button>
+    </div>
+
+    <!-- Odak bırakma butonu -->
+    <button id="release-focus-btn">Release Focus</button>
+
+    <!-- Three.js ve OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('info-btn').addEventListener('click', function() {
+            const infoSection = document.getElementById('info-section');
+            if (infoSection.style.display === 'none') {
+                infoSection.style.display = 'block';
+            } else {
+                infoSection.style.display = 'none';
+            }
+        });
+    </script>
+
+    <footer style="margin-top: 50px; text-align: center; font-size: 1.2em;">
+        <p>Eren Ege Çelik / Solosteel / Nasa Space Apps Challenge 2024</p>
+    </footer>
+
+</html>
